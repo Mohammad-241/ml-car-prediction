@@ -1,0 +1,20 @@
+
+## Dataset Collection ## Data Pre-processing
+Data Collection:  
+
+Data collection is the process of gathering relevant data from various sources. The data sources can include surveys, experiments, databases, and public sources. The data set we used is a sample car database that includes information about cars sold in the United Kingdom. The data set includes variables such as make, model, year, horsepower and fuel type. Reviewing the initial dataset, we decided the variability of cars was lacking and wanted to increase the amount of makes and models to not only increase our accuracy within the dataset but also improve the accuracy with cars outside the dataset by giving the training model more diverse data to learn from. Also, in order to make the model more competitive we have included the HICP index in prices, this makes the older MSRP models more realistic after inflation. 
+
+Data Cleaning: Data cleaning is an essential step in the data preprocessing stage. The data cleaning process involves identifying and handling missing values, removing outliers, and dealing with inconsistencies in the data. In the case of the car database, the data cleaning process had numerous revisions as the project developed. The start of preprocessing was filling any null values with 0. and removing characters such as “-” from the data and replacing them with 0, This would allow the columns to be used and manipulated. We then had to update the price columns, removing the British pound symbol for new data creation and manipulation. Additionally, certain columns needed to be updated as they were given in a range, our solution was to get the mean of the range replace the range with that updated value. Lastly, Prior to working on the model we removed all non-continuous variables as they are incompatible with our models. This would be things such as make, model, trim and descriptions. With the inclusion of another dataset to have more cars, there were a few conversions that needed to take place. For one, the added data had its power measured in a different unit than the first, we had to convert each into the right unit (bhp). At the same time, the fuel consumption was measured at L/100km whereas we needed it to be in miles per gallon (MPG).  
+
+## Exploratory Data Analysis and Visualisations 
+
+Data visualization: 
+
+Before selecting features and running the data through models, we took numerous parameters and looked at their distribution as well as their linear regression graph with respect to the target variable. Doing so gave us knowledge on the relationships and correlation within the dataset prior to selecting features giving us a more educated and informed  view in the later stages of development. 
+
+ *Please see images and figures in the Final report pdf*
+
+Images a – f: distribution and regression of expected important variables given target of price 
+
+
+## Other Related Sections (Optional)

@@ -1,0 +1,12 @@
+# Results
+
+Results and Evaluation: 
+The results indicate that the random forest regression model outperformed the linear regression model in terms of mean squared error and R-squared score. The R-squared score of the linear regression model was 0.72, while that of the random forest regression model was 0.89. This suggests that the random forest regression model is a better fit for the data. 
+
+Three rounds of hyperparameter tuning were performed on the random forest regression model. The first test R-squared score was 0.84. However, when the model was evaluated using the best hyperparameters, the R-squared score decreased to 0.88. This indicates that the performance of the model worsened with hyperparameter tuning. 
+
+Further evaluation of the models was conducted using Ridge regularization. The R-squared score with Ridge regularization was 0.74 (+/- 0.06). These performance metrics suggest that the linear regression model is not a good fit for the data and could benefit from further optimization. 
+
+
+
+

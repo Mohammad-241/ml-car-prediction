@@ -1,0 +1,37 @@
+# Methodology
+
+## Introduction to Python for Machine Learning
+
+## Platform and Machine Configurations Used
+ Syzygy, VsCode
+ 
+## Data Split
+
+Train-Test Split: The train-test split is the process of splitting the data set into two subsets - a training set and a testing set. The training set is used to train the machine learning model, and the testing set is used to evaluate the performance of the model. Typically, the training set is a larger subset of the data, and the testing set is a smaller subset. In the case of the car database, we started with a 20% test split but realized that increasing the size of the testing set improved the accuracy of the model. Therefore, we increased the test split to 30% or 40% to obtain a more reliable estimate of the model's performance. 
+
+Feature Engineering: Feature engineering is the process of creating new variables or features from the existing variables in the data set. Feature engineering is important because it can help improve the performance of the machine learning model. In our case, we were initially unhappy with the accuracy of each model given our dataset. As a result, we decided to calculate the rate of inflation as a decimal, given the inflated price and new price given in the data. We named this feature as “inflation rate” and it gave us a much better and accurate models. 
+
+Feature Selection: Feature selection is the process of identifying the most relevant variables or features for the machine learning model. Feature selection is important because it helps to reduce the complexity of the model, and it can improve the model's performance by reducing the risk of overfitting. We decided to start with a correlation analysis from all variables to our target variable of “price inflated”. Looking at the matrix we were able to visually determine which variables have low and high correlation to the target. 
+
+In addition to the correlation analysis, we also used pair pots to visualize the correlation. Pair plots can be used to visualize the relationship between each feature and the target variable. This helps us identify non-linear relationships that we could not see from the correlation matrix alone.  
+
+While it was good to see the correlations, we also wanted to verify them using computational methods. To do this, we fit our data into a Random Forest regressor model, this allowed us to identify k number of features based on importance with respect to our target.  After identifying the most relevant features using correlation analysis, pair plots, and random forest regressor, we use the SelectKBest function provided by the scikit-learn library. We used the Random Forrest regressor to identify the top 10 features and then selected the best 4 using the function.Once we have selected the top 4 features using SelectKBest, we then use these features to train a machine learning model, such as a linear regression model, a decision tree, or a random forest. By selecting only the most relevant features, we improve the model's performance and reduce the risk of overfitting. 
+
+Model Building: 
+
+The model selection process is a critical step in machine learning that involves selecting the best model from a set of candidate models, we used linear regression, random forest regression, and ridge regression as candidate models to predict the price inflated variable. 
+
+To select the best model, we first trained each model on the training set using scikit-learn's fit function. We then evaluated the performance of each model on the testing set using various metrics, such as mean squared error, mean absolute error, and R-squared. 
+
+After evaluating the performance of each model, we found that random forest regression had the highest R-squared accuracy on the testing set, indicating that it performed the best out of the three models. Therefore, we selected random forest regression as the final model for predicting the price inflated variable. 
+
+Hyperparameter Tuning & Cross-validation with GridSearch: 
+
+Hyperparameter tuning is the process of selecting the best set of hyperparameters for a given machine learning algorithm to optimize its performance on a given dataset. Hyperparameters are the parameters that are not learned by the model during training but are set by the user before training the model. They control the learning process and the complexity of the model, and have a significant impact on the model's performance. In our code, hyperparameter tuning is performed for the Random Forest Regression model using GridSearchCV. GridSearchCV is a technique that exhaustively searches for the best combination of hyperparameters from a given set of hyperparameters by evaluating the performance of the model on a cross-validation set. This process involves partitioning the data into K folds, where K is typically set to 5 or 10. For each fold, the model is trained on K-1 folds of the data and evaluated on the remaining fold. This process is repeated K times, with each fold serving as the test set once. The results from each fold are then averaged to provide an estimate of the model's performance. After the Grid Search is complete, the best hyperparameters found are printed using the best_params_ attribute of the grid_search object. The best estimator found by Grid Search is also used to predict the target values for the test set, and the model's performance is evaluated using mean squared error (MSE) and R-squared score. This process is repeated for each hyperparameter to find the best combination of hyperparameters that gives the highest R-squared score. Once the best combination of hyperparameters is found, the model is retrained using the entire dataset with the best hyperparameters found. Working with the Hyperparameters proved to be tricky, with the first iteration scoring lower than the random Forrest model without tuning, and the last hyperparameter model which took a significantly longer amount of time to compute scored slightly lower as well. We are then led to believe the parameters are overtrained, and thus over fit the data. Testing with Ridge regression also proved to be worse than random forest but better than linear regression. 
+
+Results and Evaluation:  *please see images and figures in Final report pdf*
+The results indicate that the random forest regression model outperformed the linear regression model in terms of mean squared error and R-squared score. The R-squared score of the linear regression model was 0.72, while that of the random forest regression model was 0.89. This suggests that the random forest regression model is a better fit for the data. 
+
+Three rounds of hyperparameter tuning were performed on the random forest regression model. The first test R-squared score was 0.84. However, when the model was evaluated using the best hyperparameters, the R-squared score decreased to 0.88. This indicates that the performance of the model worsened with hyperparameter tuning. 
+
+Further evaluation of the models was conducted using Ridge regularization. The R-squared score with Ridge regularization was 0.74 (+/- 0.06). These performance metrics suggest that the linear regression model is not a good fit for the data and could benefit from further optimization. 

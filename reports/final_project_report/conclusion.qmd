@@ -1,0 +1,10 @@
+# Conclusion
+Concluding remarks 
+The data we chose is from a car database that includes information about cars sold in the United Kingdom. The data set includes variables such as make, model, year, horsepower, and fuel type. The data has been cleaned by handling missing values, removing outliers, and dealing with inconsistencies in the data as well as updated to be easier to work with. Feature engineering has been performed to create new variables, such as the inflation rate, to improve the accuracy of the machine learning model. Feature selection was carried out by using correlation analysis, pair plots, and random forest regressor, and the SelectKBest function was used to select the most relevant features. The data was split into a training and testing set, and the random forest regression model was selected as the best model to predict the price inflated variable. 
+
+The work done on this dataset has given us valuable information and hands-on experience with working with Machine Learning. The process of data collection and cleaning is crucial in preparing data for machine learning. The feature engineering and feature selection techniques used in this project show the importance of creating new variables and selecting only the most relevant features to improve the accuracy of machine learning models. The findings also show that increasing the size of the testing set can lead to a more reliable estimate of the model's performance. 
+
+Future work could involve exploring other machine learning models or experimenting with different feature engineering and selection techniques to further improve the accuracy of the models. Additionally, the dataset could be expanded to include more variables and more countries to create a more diverse and comprehensive dataset. 
+
+ 
+Conclude by summarizing the key findings of the analysis, discussing the implications of the results, and suggesting areas for future research.
